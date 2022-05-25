@@ -1,0 +1,58 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Gestors</h1>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+ <a class="navbar-brand">Navbar</a>
+ <form class="form-inline">
+
+ <select class="form-select" name="search" id="">
+   <option value="">Todos</option>
+   <option value="Propuesto">Propuesto</option>
+   <option value="En Progreso">En Progreso</option>
+   <option value="Terminado">Terminado</option>
+ </select>
+
+ <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+ </form>
+</nav>
+
+<% if @gestors.count > 0 %>
+
+<div id="gestors">
+  <table class="table">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Fecha Comienzo</th>
+      <th>Fecha Término</th>
+      <th>Estado</th>
+      <th>Ver</th>
+      </tr>
+    </thead>
+
+  <% @gestors.each do |gestor| %>
+    <tr>
+      <td><%= gestor.nombre %></td>
+      <td><%= gestor.descripcion %></td>
+      <td><%= gestor.fechacom %></td>
+      <td><%= gestor.fechater %></td>
+      <td><%= gestor.estado %></td>
+      <td><%= link_to "Show this gestor", gestor %></td>
+    </tr>
+  <% end %>
+
+  </table>
+</div>
+
+<% else %>
+<h1>No hay Resultados</h1>
+
+<% end %>
+
+<%= link_to "New gestor", new_gestor_path %>
+
+
+
+

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @gestor %>
+
+<div>
+  <%= link_to "Edit this gestor", edit_gestor_path(@gestor) %> |
+  <%= link_to "Back to gestors", gestors_path %>
+
+  <%= button_to "Destroy this gestor", @gestor, method: :delete %>
+</div>
